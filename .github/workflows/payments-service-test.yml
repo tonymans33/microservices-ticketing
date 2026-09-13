@@ -1,0 +1,23 @@
+name: payments-service tests
+
+on:
+  pull_request:
+    paths:
+      - 'payments-service/**'
+      - '.github/workflows/payments-service-test.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install
+        working-directory: payments-service
+      - run: npm run test:ci
+        working-directory: payments-service
+        env:
+          # Set in GitHub: Settings > Secrets and variables > Actions
+          STRIPE_KEY: ${{ secrets.STRIPE_KEY }}

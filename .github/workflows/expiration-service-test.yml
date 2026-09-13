@@ -1,0 +1,20 @@
+name: expiration-service tests
+
+on:
+  pull_request:
+    paths:
+      - 'expiration-service/**'
+      - '.github/workflows/expiration-service-test.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install
+        working-directory: expiration-service
+      - run: npm run test:ci
+        working-directory: expiration-service
