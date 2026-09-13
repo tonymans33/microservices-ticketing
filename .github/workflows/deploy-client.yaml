@@ -27,6 +27,7 @@ jobs:
         run: |
           docker build -t us.gcr.io/${{ secrets.GCP_PROJECT_ID }}/client \
                        -t us.gcr.io/${{ secrets.GCP_PROJECT_ID }}/client:${{ github.sha }} \
+                       --build-arg NEXT_PUBLIC_STRIPE_KEY=${{ secrets.STRIPE_PUBLISHABLE_KEY }} \
                        client
           docker push --all-tags us.gcr.io/${{ secrets.GCP_PROJECT_ID }}/client
 
