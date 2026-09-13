@@ -1,4 +1,4 @@
 module.exports = {
   agentRules: false,
-  allowedDevOrigins: ["ticketing.dev"],
+  allowedDevOrigins: ["ticketing.dev", "ticketing.lol"],
 };

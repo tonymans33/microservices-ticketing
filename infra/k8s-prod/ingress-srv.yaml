@@ -9,10 +9,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - your-domain-here.com
+        - ticketing.lol
       secretName: ticketing-tls
   rules:
-    - host: your-domain-here.com
+    - host: ticketing.lol
       http:
         paths:
           - path: /api/users/?(.*)
