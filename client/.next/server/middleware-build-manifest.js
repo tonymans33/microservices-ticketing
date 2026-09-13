@@ -1,0 +1,88 @@
+globalThis.__BUILD_MANIFEST = {
+  "pages": {
+    "/": [
+      "static/chunks/2h-a9x66le1g0.js",
+      "static/chunks/3r6tb41cmujm6.js",
+      "static/chunks/00079t2k9r05s.js",
+      "static/chunks/2gaief1__8yk3.js",
+      "static/chunks/turbopack-1cldxc3lga4_4.js"
+    ],
+    "/_app": [
+      "static/chunks/1s2fxm1-c5l9q.js",
+      "static/chunks/3r6tb41cmujm6.js",
+      "static/chunks/2gaief1__8yk3.js",
+      "static/chunks/00079t2k9r05s.js",
+      "static/chunks/3qln5pbw6nmdf.js",
+      "static/chunks/2rb5hygygezjf.css",
+      "static/chunks/turbopack-2gfk06rp2b293.js"
+    ],
+    "/_error": [
+      "static/chunks/0r6jpylq50p4g.js",
+      "static/chunks/3r6tb41cmujm6.js",
+      "static/chunks/2gaief1__8yk3.js",
+      "static/chunks/00079t2k9r05s.js",
+      "static/chunks/turbopack-2xaodxu0f0vfm.js"
+    ],
+    "/auth/signin": [
+      "static/chunks/201ghe-r839k6.js",
+      "static/chunks/3r6tb41cmujm6.js",
+      "static/chunks/2gaief1__8yk3.js",
+      "static/chunks/00079t2k9r05s.js",
+      "static/chunks/turbopack-3j2izbg3i0jx1.js"
+    ],
+    "/auth/signout": [
+      "static/chunks/1upuxp4g2ix3d.js",
+      "static/chunks/3r6tb41cmujm6.js",
+      "static/chunks/2gaief1__8yk3.js",
+      "static/chunks/00079t2k9r05s.js",
+      "static/chunks/turbopack-309_gvfgzot32.js"
+    ],
+    "/auth/signup": [
+      "static/chunks/370qh4q6xh9ok.js",
+      "static/chunks/3r6tb41cmujm6.js",
+      "static/chunks/2gaief1__8yk3.js",
+      "static/chunks/00079t2k9r05s.js",
+      "static/chunks/turbopack-078hbn7t5xywl.js"
+    ],
+    "/orders": [
+      "static/chunks/2d5_ax4uf4m0i.js",
+      "static/chunks/3r6tb41cmujm6.js",
+      "static/chunks/00079t2k9r05s.js",
+      "static/chunks/2gaief1__8yk3.js",
+      "static/chunks/turbopack-3uqi_k6dgc0p4.js"
+    ],
+    "/orders/[orderId]": [
+      "static/chunks/3odmmg_56vyzn.js",
+      "static/chunks/370g766mx65ri.js",
+      "static/chunks/3r6tb41cmujm6.js",
+      "static/chunks/00079t2k9r05s.js",
+      "static/chunks/2gaief1__8yk3.js",
+      "static/chunks/turbopack-0-jjgf0gfqx4r.js"
+    ],
+    "/tickets/[ticketId]": [
+      "static/chunks/1selfxm3e92x-.js",
+      "static/chunks/3r6tb41cmujm6.js",
+      "static/chunks/00079t2k9r05s.js",
+      "static/chunks/2gaief1__8yk3.js",
+      "static/chunks/turbopack-24v4_3lvy-jc_.js"
+    ],
+    "/tickets/new": [
+      "static/chunks/0u2p8retn_udj.js",
+      "static/chunks/3r6tb41cmujm6.js",
+      "static/chunks/00079t2k9r05s.js",
+      "static/chunks/2gaief1__8yk3.js",
+      "static/chunks/turbopack-3uicdluz5widt.js"
+    ]
+  },
+  "devFiles": [],
+  "polyfillFiles": [],
+  "lowPriorityFiles": [
+    "static/jJ81_Td_BwFfpD47qrAVg/_buildManifest.js",
+    "static/jJ81_Td_BwFfpD47qrAVg/_ssgManifest.js",
+    "static/jJ81_Td_BwFfpD47qrAVg/_clientMiddlewareManifest.js"
+  ],
+  "rootMainFiles": [],
+  "rootMainFilesTree": {},
+  "pagesChunkGroupBootstrapParams": {},
+  "chunkLoadingGlobal": "TURBOPACK"
+};

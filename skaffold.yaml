@@ -1,0 +1,76 @@
+apiVersion: skaffold/v4beta14
+kind: Config
+build:
+  artifacts:
+    - image: us.gcr.io/ticketing-dev-504919/auth-service
+      context: auth-service
+      sync:
+        manual:
+          - src: src/**/*.ts
+            dest: .
+      docker:
+        dockerfile: Dockerfile
+    - image: us.gcr.io/ticketing-dev-504919/tickets-service
+      context: tickets-service
+      sync:
+        manual:
+          - src: src/**/*.ts
+            dest: .
+      docker:
+        dockerfile: Dockerfile
+    - image: us.gcr.io/ticketing-dev-504919/orders-service
+      context: orders-service
+      sync:
+        manual:
+          - src: src/**/*.ts
+            dest: .
+      docker:
+        dockerfile: Dockerfile
+    - image: us.gcr.io/ticketing-dev-504919/expiration-service
+      context: expiration-service
+      sync:
+        manual:
+          - src: src/**/*.ts
+            dest: .
+      docker:
+        dockerfile: Dockerfile
+    - image: us.gcr.io/ticketing-dev-504919/payments-service
+      context: payments-service
+      sync:
+        manual:
+          - src: src/**/*.ts
+            dest: .
+      docker:
+        dockerfile: Dockerfile
+    - image: us.gcr.io/ticketing-dev-504919/client
+      context: client
+      sync:
+        manual:
+          - src: pages/**/*.js
+            dest: .
+          - src: components/**/*.js
+            dest: .
+          - src: hooks/**/*.js
+            dest: .
+          - src: api/**/*.js
+            dest: .
+          - src: styles/**/*.css
+            dest: .
+      docker:
+        dockerfile: Dockerfile
+  googleCloudBuild:
+    projectId: ticketing-dev-504919
+manifests:
+  rawYaml:
+    - ./infra/k8s/*
+deploy:
+  kubectl: {}
+profiles:
+  - name: local
+    patches:
+      - op: remove
+        path: /build/googleCloudBuild
+      - op: add
+        path: /build/local
+        value:
+          push: false

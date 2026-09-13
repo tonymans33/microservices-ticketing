@@ -1,0 +1,3 @@
+{
+  "/auth/signout": "pages/auth/signout.js"
+}

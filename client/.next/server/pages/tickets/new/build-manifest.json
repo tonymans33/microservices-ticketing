@@ -1,0 +1,20 @@
+{
+  "devFiles": [],
+  "ampDevFiles": [],
+  "polyfillFiles": [],
+  "lowPriorityFiles": [],
+  "rootMainFiles": [],
+  "pages": {
+    "/tickets/new": [
+      "static/chunks/0u2p8retn_udj.js",
+      "static/chunks/3r6tb41cmujm6.js",
+      "static/chunks/00079t2k9r05s.js",
+      "static/chunks/2gaief1__8yk3.js",
+      "static/chunks/turbopack-3uicdluz5widt.js"
+    ]
+  },
+  "ampFirstPages": [],
+  "rootMainFilesTree": {},
+  "pagesChunkGroupBootstrapParams": {},
+  "chunkLoadingGlobal": "TURBOPACK"
+}

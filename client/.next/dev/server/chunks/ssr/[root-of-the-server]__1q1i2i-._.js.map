@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 22, "column": 0}, "map": {"version":3,"sources":["file:///home/mans/Work/Projects/Microservices/new-course/ticketing/client/pages/index.js"],"sourcesContent":["export default () => {\n    return (\n        <div>\n            <h1>Home</h1>\n        </div>\n    )\n}"],"names":[],"mappings":";;;;;;uCAAe;IACX,qBACI,qKAAC;kBACG,cAAA,qKAAC;sBAAG;;;;;;;;;;;AAGhB"}}]
+}
