@@ -1,0 +1,32 @@
+name: deploy-manifests
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'infra/k8s/**'
+      - '.github/workflows/deploy-manifests.yaml'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - uses: google-github-actions/setup-gcloud@v2
+
+      - uses: google-github-actions/get-gke-credentials@v2
+        with:
+          cluster_name: ticketing-dev
+          location: us-central1
+
+      - name: Validate manifests
+        run: kubectl apply --dry-run=server -f infra/k8s
+
+      - name: Apply manifests
+        run: kubectl apply -f infra/k8s
