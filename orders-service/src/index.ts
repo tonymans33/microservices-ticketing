@@ -44,7 +44,7 @@ const startConnection = async () => {
     new PaymentCreatedListener(natsWrapper.client).listen();
 
     await mongoose.connect(process.env.MONGO_URI);
-    console.log("Connected to MongoDB !!");
+    console.log("Connected to MongoDB !!!");
   } catch (err) {
     console.error(err);
     process.exit(1);
