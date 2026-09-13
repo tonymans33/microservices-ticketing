@@ -1,0 +1,39 @@
+name: deploy-client
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'client/**'
+      - '.github/workflows/deploy-client.yaml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Docker for GCR
+        run: gcloud auth configure-docker us.gcr.io --quiet
+
+      - name: Build and push image
+        run: |
+          docker build -t us.gcr.io/${{ secrets.GCP_PROJECT_ID }}/client \
+                       -t us.gcr.io/${{ secrets.GCP_PROJECT_ID }}/client:${{ github.sha }} \
+                       client
+          docker push --all-tags us.gcr.io/${{ secrets.GCP_PROJECT_ID }}/client
+
+      - uses: google-github-actions/get-gke-credentials@v2
+        with:
+          cluster_name: ticketing-dev
+          location: us-central1
+
+      - name: Restart deployment
+        run: kubectl rollout restart deployment client-depl

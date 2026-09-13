@@ -1,0 +1,39 @@
+name: deploy-tickets
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'tickets-service/**'
+      - '.github/workflows/deploy-tickets.yaml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Docker for GCR
+        run: gcloud auth configure-docker us.gcr.io --quiet
+
+      - name: Build and push image
+        run: |
+          docker build -t us.gcr.io/${{ secrets.GCP_PROJECT_ID }}/tickets-service \
+                       -t us.gcr.io/${{ secrets.GCP_PROJECT_ID }}/tickets-service:${{ github.sha }} \
+                       tickets-service
+          docker push --all-tags us.gcr.io/${{ secrets.GCP_PROJECT_ID }}/tickets-service
+
+      - uses: google-github-actions/get-gke-credentials@v2
+        with:
+          cluster_name: ticketing-dev
+          location: us-central1
+
+      - name: Restart deployment
+        run: kubectl rollout restart deployment tickets-service-depl
